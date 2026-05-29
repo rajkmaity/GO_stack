@@ -12,6 +12,7 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: "1.25"
+      - run: go mod tidy
       - run: go test -v -coverfile=coverage.out ./learning/1_fundamentals ./learning/2_Data_Modeling
       - run: go tool cover -func=coverage.out | grep total | awk '{print $3}' | sed 's/%//' > coverage.txt
       - name: Check Coverage threshold
