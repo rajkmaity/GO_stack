@@ -16,7 +16,7 @@ jobs:
       - run: go tool cover -func=coverage.out | grep total | awk '{print $3}' | sed 's/%//' > coverage.txt
       - name: Check Coverage threshold
         run: |
-          COVERAGE= $(cat coverage.txt)
+          COVERAGE=$(cat coverage.txt)
           echo "Test Coverage: ${COVERAGE}%"
           if (( $(echo "$COVERAGE < 50" | bc -l) )); then 
             echo "X Test coverage is ${COVERAGE}%, which is below  the reqiured 50% threshold"
