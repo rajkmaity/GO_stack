@@ -13,7 +13,7 @@ jobs:
         with:
           go-version: "1.25"
       - run: go mod tidy
-      - run: go test -v -coverfile=coverage.out -tags '!skip' ./learning/1_fundamentals ./learning/2_Data_Modeling
+      - run: go test -v -coverfile=coverage.out  ./learning/...
       - run: go tool cover -func=coverage.out | grep total | awk '{print $3}' | sed 's/%//' > coverage.txt
       - name: Check Coverage threshold
         run: |
