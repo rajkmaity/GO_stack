@@ -3,7 +3,6 @@ name: Go tests
 on: 
   push:
   pull_request:
-  merge
 
 jobs:
   test:
